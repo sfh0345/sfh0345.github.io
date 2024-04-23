@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: Rubik, regular;
+}
+
+header {
+  background-color: #004899;
+  padding: 10px;
+}
+
+.logo img {
+  max-width: 100px;
+  height: 100%;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 8%;
+  gap: 25px;
+
+}
+
+.card {
+  width: 250px;
+  margin: 10px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.43s, background-color 0.4s ease, color 0.4s ease;;
+  
+
+}
+.card:nth-child(odd) {
+    background-color: #00489760; /* Even index card color */
+  }
+  
+  .card:nth-child(even) {
+    background-color: #E3061360; /* Odd index card color */
+  }
+
+.card:hover {
+  transform: translateY(-5px);
+}
+.card:nth-child(odd):hover {
+    background-color: #00489799; /* Change to a different color on hover */
+  }
+  
+  .card:nth-child(even):hover {
+    background-color: #E3061399; /* Change to a different color on hover */
+  }
+
+  .card img {
+    width: 100%;
+    height: 250px; /* Adjust the desired height */
+    object-fit: cover; /* Scale the image as large as possible while maintaining its aspect ratio */
+    object-position: center; /* Position the image at the center */
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    opacity: 80%;
+  }
+
+.card-info {
+  padding: 15px;
+  line-height: 1;
+  height: 90px;
+
+}
+
+.card-info h2 {
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.card-info p {
+  margin-bottom: 0;
+  font-family: Rubik light;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 26px; /* Adjust padding as needed */
+  box-sizing: border-box; /*Include padding in width calculation    */
+}
+
+.logout-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  font-family: 'Rubik', sans-serif; /* Ensure correct font family syntax */
+}
+
+@media (min-width: 768px) {
+  .cards {
+    justify-content: center;
+  }
+}

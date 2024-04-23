@@ -1,0 +1,122 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container {
+    display: flex;
+    height: 100%;
+}
+.image-container {
+    flex: 1.5;
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+    .image-container {
+    flex: 0;
+
+}
+}
+
+.login-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust as needed */
+    max-width: 400px; /* Adjust as needed */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.login-form h2 {
+    font-family: Rubik regular;
+    margin-bottom: 20px;
+}
+.login-form h3 {
+    font-family: Rubik light;
+    font-size: 14px;
+    bottom: 4%;
+    display: none;
+}
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#rectangle_3 {
+    border-radius: 5px;
+    background: rgba(0, 72, 153, 1);
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: #FFFFFF; /* Text color */
+    font-family: Rubik; /* Font family */
+    cursor: pointer; /* Cursor style */
+	font-size: 22px;
+	transition: transform 0.43s, background-color 0.4s ease, color 0.4s ease;
+	z-index: 1;
+	position: relative;
+	border: none;
+	
+}
+
+#rectangle_3:hover {
+    background: rgb(1, 100, 199); /* Change background color on hover */
+	transform: scale(1.02);
+	text-decoration: none; /* Remove underline from text */
+
+}
+
+#rectangle_3::after {
+    content: ''; /* Add content for pseudo-element */
+    transition: transform 0.3s cubic-bezier(1, 0, 0, 0.99); /* Smooth transition with ease timing function */
+    position: absolute; /* Set position to absolute */
+    inset: 0; /* Fill the entire space of the parent */
+    z-index: -1; /* Place behind the main content */
+    background-color: rgba(0, 92, 183, 0); /* Initial background color */
+}
+.logo {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the right position as needed */
+}
+
+.logo img {
+    width: 200px; /* Adjust the width of the logo as needed */
+    height: auto;
+}
+
+@media screen and (max-width: 150px), 
+       screen and (max-height: 360px) {
+        .logo {
+            display: none;
+            }
+        }
+#opacity {
+    position: absolute;
+    opacity: 0.60000002384186;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 72, 153, 0.6);
+}
