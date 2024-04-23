@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkbon Invoeren - Brenkman Culemborg</title>
+    <link rel="icon" type="image/png" href="assets/Fav_Brenkman_normal.png">
+    <link rel="stylesheet" href="/css/invoeren.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="keuzeoverzicht.html" class="back-button"><img src="assets/backbutton.png" alt="Back"></a>
+            <h2>Werkbon maken</h2>
+            <img src="assets/Brenkman-nieuw-logo_big.png" class="logobrenkman"alt="Logo">
+        </div>
+        <form action="#" method="post">
+            <h3>Apparaatgegevens:</h3>
+            <div class="form-group">
+                <label for="image">Afbeelding(en) uploaden:</label>
+                <input type="file" id="image" name="image[]" multiple required>
+                <button type="button" class="add-btn" onclick="addFileInput()">(+) Voeg nog een foto toe</button>
+            </div>
+            <div class="form-group">
+                <label for="date">Datum:</label>
+                <input type="text" id="date" name="date" value="" placeholder="dd/mm/yyyy" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="device">Apparaat:</label>
+                <input type="text" id="device" name="device" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="brand">Merk:</label>
+                <input type="text" id="brand" name="brand" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="model">Typenummer:</label>
+                <input type="text" id="model" name="model" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="serial">Serienummer:</label>
+                <input type="text" id="serial" name="serial" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="warranty">Garantie:</label>
+                <select id="warranty" name="warranty">
+                    <option value="nietbekend">Niet bekend</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+                </select>
+            </div>
+            <h3>Klantgegevens:</h3>
+            <div class="form-group">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" autocomplete="false">
+            </div>
+            <div class="form-group">
+                <label for="address">Adres:</label>
+                <input type="text" id="address" name="address" autocomplete="false" required>
+            </div>
+            <div class="form-group">
+                <label for="telefoon">Telefoonnummers:</label>
+                <div id="telefoon">
+                    <div class="telefoon-item">
+                        <input type="text" autocomplete="off" placeholder="(0345) 512 673" name="telefoon[]">
+                        <select class="selectmenu" name="title1" required>
+                            <option value="mvr">n.v.t</option>
+                            <option value="dhr">Dhr.</option>
+                            <option value="mvr">Mvr.</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addPhone()">(+) Voeg een nummer toe</button>
+
+
+
+            </div>
+            <div class="form-group">
+                <label for="email">Emailadres:</label>
+                <input type="email" id="email" name="email" autocomplete="false">
+                <a onclick="Sendtestmail">
+                <button class="add-btn">Verstuur testmail</button>
+            </a>
+            </div>
+            <div class="form-group">
+                <label for="repair-time">Reparatieduur (in minuten):</label>
+                <input type="number" id="repair-time" name="repair-time" value="0" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="complaint">Klachtomschrijving:</label>
+                <textarea id="complaint" style="resize: none; height: 100px;" name="complaint" autocomplete="off"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="work-description">Werkomschrijving:</label>
+                <textarea id="work-description" style="resize: none; height: 100px;" name="work-description" autocomplete="off"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="materials">Gebruikte materialen:</label>
+                <div id="materials">
+                    <div class="material-item">
+                        <input type="text" autocomplete="off" name="material[]" placeholder="Materiaal">
+                        <input type="number" autocomplete="off" name="cost[]" placeholder="0,00€">
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addMaterial()">(+) Voeg materiaal toe</button>
+            </div>
+            <input class="opslaanbutton" type="submit" value="Opslaan">
+        </form>
+    </div>
+
+    <script src="js/invoeren.js"></script>
+</body>
+</html>
