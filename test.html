@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Google Places API JSON</title>
+</head>
+<body>
+    <h1>Google Places Autocomplete</h1>
+    <input id="autocomplete" type="text" placeholder="Enter address here...">
+    <h2>JSON Output</h2>
+    <pre id="jsonOutput"></pre>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4F4CRjfCWr_ib8mAwq5oUTaqvQ9bbCLg&libraries=places&callback=initialize" async defer></script>
+    <script type="text/javascript">
+        function initialize() {
+            var input = document.getElementById('autocomplete');
+            var options = {
+                fields: ["address_components", "geometry"],
+                types: ['address']
+            };
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                var output = document.getElementById('jsonOutput');
+                if (!place.geometry) {
+                    output.textContent = "No details available for input: '" + place.name + "'";
+                    return;
+                }
+                output.textContent = JSON.stringify(place, null, 2);
+            });
+        }
+    </script>
+</body>
+</html>

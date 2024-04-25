@@ -43,22 +43,25 @@
                 <input type="text" id="serial" name="serial" autocomplete="off">
             </div>
             <div class="form-group">
-                <label for="warranty">Garantie:</label>
-                <select id="warranty" name="warranty">
+                <label for="warranty">Aankoopdatum:</label>
+                <input type="date" id="serial" name="serial" autocomplete="off">
+                <!-- <select id="warranty" name="warranty">
                     <option value="nietbekend">Niet bekend</option>
                     <option value="ja">Ja</option>
                     <option value="nee">Nee</option>
-                </select>
+                </select> -->
             </div>
             <h3>Klantgegevens:</h3>
             <div class="form-group">
                 <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" autocomplete="false">
+                <input type="text" id="naam1234" name="naam1234" autocomplete="false">
             </div>
-            <div class="form-group">
-                <label for="address">Adres:</label>
-                <input type="text" id="address" name="address" autocomplete="false" required>
-            </div>
+                <div class="form-group">
+                    <label for="hidden">Klantadres:</label>
+                    <input type="text" id="hidden" name="hidden" autocomplete="off" required>
+                    <!-- <h6 id="geenhuisnummer" style="margin: 0; line-height: 0; font-family: Rubik light; color: #f44336; margin-top: -5px; margin-bottom: 30px;"></h6> -->
+                    <div id="messageContainer"></div>
+                </div>
             <div class="form-group">
                 <label for="telefoon">Telefoonnummers:</label>
                 <div id="telefoon">
@@ -77,15 +80,15 @@
 
             </div>
             <div class="form-group">
-                <label for="email">Emailadres:</label>
-                <input type="email" id="email" name="email" autocomplete="false">
+                <label for="email">Mailadres:</label>
+                <input type="email" id="mail" name="mail" autocomplete="off">
                 <a onclick="Sendtestmail">
                 <button class="add-btn">Verstuur testmail</button>
             </a>
             </div>
             <div class="form-group">
                 <label for="repair-time">Reparatieduur (in minuten):</label>
-                <input type="number" id="repair-time" name="repair-time" value="0" autocomplete="off">
+                <input type="number" id="repair-time" name="repair-time" value="15" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="complaint">Klachtomschrijving:</label>
@@ -110,5 +113,6 @@
     </div>
 
     <script src="js/invoeren.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4F4CRjfCWr_ib8mAwq5oUTaqvQ9bbCLg&libraries=places&callback=initialize" async defer></script>
 </body>
 </html>
