@@ -82,6 +82,21 @@ header {
     display: block;
 }
 
+#searchButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 0; /* Remove padding if the image has its own padding */
+    border-radius: 0px 5px 5px 0px;
+}
+
+#searchButton img {
+    width: 19px; /* Or the size you want */
+    height: 19px; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline padding/margin */
+    padding: 10px;
+}
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -125,15 +140,37 @@ header {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 4px 4px 8px #babecc, -4px -4px 8px #ffffff70;
+    border-radius: 5px 5px 0px 0px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+
+    }
+    #loadMore:hover {
+        background: rgb(1, 100, 199); /* Change background color on hover */
+        text-decoration: none; /* Remove underline from text */
+    }
+    
+    #loadMore::after {
+        content: ''; /* Add content for pseudo-element */
+        background-color: #004899;
+    }
+
+
+
+    
+.main {
+    margin-top: 100px;
 }
 
 @media (max-width: 768px) {
+    .main {
+        margin-top: 140px;
+    }
     header {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .logo {
@@ -169,7 +206,7 @@ header {
         border-radius: 5px 0 0 5px;
         background: white;
         color: #333;
-        width: 304px;
+        width: 100%;
     }    }
 
     .dropdown {
