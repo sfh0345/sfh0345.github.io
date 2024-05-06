@@ -29,15 +29,17 @@ function loadCards() {
 }
 
 function createCard(name, description, address, imageUrl) {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.className = 'card';
+    card.href = "test.html";
+    card.style.textDecoration = 'none';
+    card.style.color = '#333';
+
     card.innerHTML = `
         <div class="card-content">
-            <a href="test.html" style="	text-decoration: none; color: #333;">
             <h2 class="card-name">${name}</h2>
             <p class="card-description">${description}</p>
             <p class="card-address">${address}</p>
-            </a>
         </div>
         <img src="${imageUrl}" alt="Photo of ${name}">
     `;

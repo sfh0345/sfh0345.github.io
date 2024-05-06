@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Google Places API JSON</title>
+    <title>Minimalistic Apple-Like Notification Popup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
+<style>
+.notification-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft, subtle shadow */
+    opacity: 0;
+    transition: all 0.5s ease;
+    text-align: left;
+    z-index: 1000;
+}
+
+.notification-popup.show {
+    opacity: 1;
+}
+.success {
+    width: 16px;
+    margin-right: 8px;
+}
+
+.notification-popup p {
+    margin: 0;
+    font-weight: 400;
+    color: #333; /* Darker text color */
+    flex: 1; /* Text takes up remaining space */
+    font-size: 14px; /* Smaller text size */
+    margin-left: 5px;
+    font-family: 'Rubik', sans-serif;
+
+}
+</style>
 <body>
-    <h1>Google Places Autocomplete</h1>
-    <input id="autocomplete" type="text" placeholder="Enter address here...">
-    <h2>JSON Output</h2>
-    <pre id="jsonOutput"></pre>
+    <!-- Minimalistic Notification Popup -->
+    <div class="notification-popup">
+        <img style="width: 10px;" src="/assets/check-circle (1).png" alt="">
+        <p>De werkbon is succesvol opgeslagen</p>
+    </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4F4CRjfCWr_ib8mAwq5oUTaqvQ9bbCLg&libraries=places&callback=initialize" async defer></script>
-    <script type="text/javascript">
-        function initialize() {
-            var input = document.getElementById('autocomplete');
-            var options = {
-                fields: ["address_components", "geometry"],
-                types: ['address']
-            };
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
+    <script>
+        window.onload = function () {
+            const popup = document.querySelector('.notification-popup');
+            popup.classList.add('show');
 
-            autocomplete.addListener('place_changed', function() {
-                var place = autocomplete.getPlace();
-                var output = document.getElementById('jsonOutput');
-                if (!place.geometry) {
-                    output.textContent = "No details available for input: '" + place.name + "'";
-                    return;
-                }
-                output.textContent = JSON.stringify(place, null, 2);
-            });
-        }
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 4000);
+        };
     </script>
 </body>
 </html>

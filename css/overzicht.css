@@ -27,14 +27,6 @@ header {
     height: 24px; /* Maintains aspect ratio */
     /* flex: 0 0 10% */
 }
-#searchButton {
-    cursor: pointer;
-    background: #005fa3; /* Darker shade for better contrast */
-    border: none;
-    padding: 8px 16px;
-    border-radius: 0px 5px 5px 0px;
-    color: white;
-}
 .dropButton {
     cursor: pointer;
     background: #005fa3; /* Darker shade for better contrast */
@@ -81,6 +73,14 @@ header {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+#searchButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 0px 5px 5px 0px;
+    color: white;
+}
 
 #searchButton {
     cursor: pointer;
@@ -88,6 +88,17 @@ header {
     border: none;
     padding: 0; /* Remove padding if the image has its own padding */
     border-radius: 0px 5px 5px 0px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#searchButton:hover {
+    background: rgb(1, 100, 199); /* Change background color on hover */
+    text-decoration: none; /* Remove underline from text */
+}
+
+#searchButton::after {
+    content: ''; /* Add content for pseudo-element */
+    background-color: #004899;
 }
 
 #searchButton img {
@@ -95,6 +106,51 @@ header {
     height: 19px; /* Maintain aspect ratio */
     display: block; /* Remove any default inline padding/margin */
     padding: 10px;
+}
+
+#refreshButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: white;
+    
+}
+
+#refreshButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 0; /* Remove padding if the image has its own padding */
+    border-radius: 5px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#refreshButton:hover {
+    background: rgb(1, 100, 199); /* Change background color on hover */
+    text-decoration: none; /* Remove underline from text */
+}
+
+#refreshButton::after {
+    content: ''; /* Add content for pseudo-element */
+    background-color: #004899;
+}
+
+#refreshButton img {
+    width: 19px; /* Or the size you want */
+    height: 19px; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline padding/margin */
+    padding: 10px;
+}
+#refreshImage {
+    display: block; /* Ensures the image behaves as a block element */
+    transition: transform 0.7s cubic-bezier(0.75,-0.07, 0, 1.01); /* Smooth transition in both directions */
+}
+
+#refreshButton:hover #refreshImage {
+    transform: rotate(720deg); /* Rotates two full turns */
 }
 
 .card-container {

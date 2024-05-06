@@ -6,8 +6,14 @@
     <title>Werkbon Invoeren - Brenkman Culemborg</title>
     <link rel="icon" type="image/png" href="assets/Fav_Brenkman_normal.png">
     <link rel="stylesheet" href="/css/invoeren.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="notification-popup">
+        <img style="width: 10px;" src="/assets/check-circle (1).png" alt="">
+        <p>De werkbon is succesvol opgeslagen</p>
+    </div>
+    
     <div class="container">
         <div class="header">
             <a href="keuzeoverzicht.html" class="back-button"><img src="assets/backbutton.png" alt="Back"></a>
@@ -18,9 +24,13 @@
             <h3>Apparaatgegevens:</h3>
             <div class="form-group">
                 <label for="image">Afbeelding(en) uploaden:</label>
-                <input type="file" id="image" name="image[]" multiple required>
-                <button type="button" class="add-btn" onclick="addFileInput()">(+) Voeg nog een foto toe</button>
+                <div id="file-upload-container">
+                    <!-- Initial file input will be added by JavaScript -->
+                </div>
+                <button type="button" class="add-btn" onclick="addFileInput()">Voeg een foto toe (+)</button>
             </div>
+            
+
             <div class="form-group">
                 <label for="date">Datum:</label>
                 <input type="text" id="date" name="date" value="" placeholder="dd/mm/yyyy" required>
@@ -103,7 +113,7 @@
                 </div>
                 <button type="button" class="add-btn" onclick="addMaterial()">(+) Voeg materiaal toe</button>
             </div>
-            <input class="opslaanbutton" type="submit" value="Opslaan">
+            <input class="opslaanbutton" id="opslaanbutton" type="submit" value="Opslaan">
         </form>
     </div>
 
