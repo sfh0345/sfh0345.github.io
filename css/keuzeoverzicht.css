@@ -6,11 +6,29 @@ body {
 header {
   background-color: #004899;
   padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.gebruikersnaamdiv {
+  margin-left: auto;
+  background-color: #e8f4fd; /* Light blue to complement the darker blue header */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.gebruikersnaam {
+  color: #004899; /* Dark blue for contrast */
+  font-weight: 500;
+  margin-left: 10px; /* Spacing between icon and text */
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .logo img {
   max-width: 100px;
-  height: 100%;
 }
 
 .cards {

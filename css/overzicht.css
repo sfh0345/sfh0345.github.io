@@ -113,9 +113,12 @@ header {
     background: #005fa3; /* Darker shade for better contrast */
     border: none;
     padding: 8px 16px;
+    width: 45px;
+    height: 45px;
     border-radius: 5px;
     margin-left: 20px;
     color: white;
+    
     
 }
 
@@ -143,6 +146,7 @@ header {
     height: 19px; /* Maintain aspect ratio */
     display: block; /* Remove any default inline padding/margin */
     padding: 10px;
+    margin: auto;
 }
 #refreshImage {
     display: block; /* Ensures the image behaves as a block element */

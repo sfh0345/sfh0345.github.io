@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
     // Function to handle the "Opslaan" button click
     function runOnOpslaanClick() {
         const popup = document.querySelector('.notification-popup');

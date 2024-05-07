@@ -27,8 +27,6 @@ body {
 
 .header h2 {
     margin: 0;
-    flex: 0 0 60%
-
 }
 .container {
     max-width: 600px;
@@ -105,6 +103,8 @@ input[type="submit"] {
 .form-group {
     position: relative;
     margin-bottom: 15px;
+    outline: none; /* Remove the default browser outline */
+
 }
 .form-group .add-btn {
     position: absolute;
@@ -120,6 +120,8 @@ input[type="submit"] {
     font-size: 10px;
 	transition: background-color 0.4s ease, color 0.4s ease;
     font-family: Rubik;
+    outline: none; /* Remove the default browser outline */
+
 }
 .form-group .add-btn:hover {
     background: rgb(1, 100, 199); /* Change background color on hover */
@@ -190,11 +192,13 @@ margin: 0;
     font-size: large;
     transition: transform 0.8s, background-color 0.4s ease, color 0.4s ease;
     font-family: Rubik;
+    outline: none; /* Remove the default browser outline */
 }
 .opslaanbutton:hover {
     background: rgb(1, 100, 199); /* Change background color on hover */
     transform: scale(1.02);
 	text-decoration: none; /* Remove underline from text */
+
 }
 .opslaanbutton::after {
     content: ''; /* Add content for pseudo-element */
@@ -312,6 +316,7 @@ margin: 0;
     transition: all 0.5s ease;
     text-align: left;
     z-index: 1000;
+    width: 260px;
 }
 
 .notification-popup.show {
