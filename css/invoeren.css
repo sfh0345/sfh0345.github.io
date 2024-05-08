@@ -361,4 +361,9 @@ margin: 0;
     .header img {
         display: none;
     }
-   }
+    .notification-popup {
+        width: 75%;
+    }
+    
+}
+
