@@ -1,16 +1,27 @@
 window.addEventListener('load', function () {
-    // Function to handle the "Opslaan" button click
+    var canvas = document.getElementById('signature-pad');
+    var context = canvas.getContext('2d');
+    var isSigned = false; // Flag to track if the canvas has been signed
+
+    // Set up canvas event listeners to detect drawing
+    canvas.addEventListener('mousedown', () => { isSigned = true; });
+    canvas.addEventListener('touchstart', () => { isSigned = true; });
+
     function runOnOpslaanClick() {
         const popup = document.querySelector('.notification-popup');
-        popup.classList.add('show');
+        if (!isSigned) {
+            alert('Please sign before submitting the form.');
+            return; // Exit the function to prevent further actions
+        }
 
+        popup.classList.add('show');
         setTimeout(() => {
             popup.classList.remove('show');
-        }, 4000);
+        }, 1700);
 
         setTimeout(() => {
             window.location.replace("invoeren.html");
-        }, 5000);
+        }, 2000);
     }
 
     // Attach the click event to the "Opslaan" button
@@ -191,3 +202,81 @@ function getComponent(place, type) {
     var component = place.address_components.find(c => c.types.includes(type));
     return component ? component.long_name : '';
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var canvas = document.getElementById('signature-pad');
+    var context = canvas.getContext('2d');
+    canvas.style.width ='100%';
+    canvas.width = canvas.offsetWidth;
+    canvas.height = 200;
+
+    var drawing = false;
+    var lastX = 0;
+    var lastY = 0;
+    var isSigned = false;  // Flag to indicate whether the canvas has been signed
+
+    function draw(x, y) {
+        if (!drawing) return;
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.stroke();
+        lastX = x;
+        lastY = y;
+        isSigned = true;  // Set the flag to true once the user draws
+    }
+
+    function startDrawing(e) {
+        drawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    }
+
+    function stopDrawing() {
+        drawing = false;
+    }
+
+    // Event listeners for mouse
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', (e) => draw(e.offsetX, e.offsetY));
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    // Event listeners for touch
+    canvas.addEventListener('touchstart', (e) => {
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousedown", { clientX: touch.clientX, clientY: touch.clientY });
+        canvas.dispatchEvent(mouseEvent);
+        e.preventDefault();
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
+        canvas.dispatchEvent(mouseEvent);
+        e.preventDefault();
+    });
+
+    canvas.addEventListener('touchend', (e) => {
+        var mouseEvent = new MouseEvent('mouseup', {});
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    // Clear button functionality
+    document.getElementById('clear').addEventListener('click', () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        isSigned = false;  // Reset the flag when the canvas is cleared
+    });
+
+    // Checking the signature before submitting
+    document.getElementById('opslaanbutton').addEventListener('click', function(event) {
+        if (!isSigned) {
+            event.preventDefault(); // Stop form submission
+        } else {
+            var dataURL = canvas.toDataURL('image/png');
+            var link = document.createElement('a');
+            link.download = 'signature.png';
+            link.href = dataURL;
+            link.click();
+        }
+    });
+});

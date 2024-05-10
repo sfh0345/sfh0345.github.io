@@ -1,65 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalistic Apple-Like Notification Popup</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signature Pad</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <style>
-.notification-popup {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    body {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft, subtle shadow */
-    opacity: 0;
-    transition: all 0.5s ease;
-    text-align: left;
-    z-index: 1000;
+    height: 100vh;
+    background-color: #f4f4f9;
 }
 
-.notification-popup.show {
-    opacity: 1;
-}
-.success {
-    width: 16px;
-    margin-right: 8px;
+.signature-pad {
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    background-color: white;
 }
 
-.notification-popup p {
-    margin: 0;
-    font-weight: 400;
-    color: #333; /* Darker text color */
-    flex: 1; /* Text takes up remaining space */
-    font-size: 14px; /* Smaller text size */
-    margin-left: 5px;
-    font-family: 'Rubik', sans-serif;
-
+canvas {
+    border: 1px solid black;
 }
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
 </style>
 <body>
-    <!-- Minimalistic Notification Popup -->
-    <div class="notification-popup">
-        <img style="width: 10px;" src="/assets/check-circle (1).png" alt="">
-        <p>De werkbon is succesvol opgeslagen</p>
-    </div>
+<div class="signature-pad">
+    <canvas id="signature-pad" width="400" height="200"></canvas>
+    <button id="save">Save as PNG</button>
+    <button id="clear">Clear</button>
+</div>
+<script src="app.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signature Pad</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var canvas = document.getElementById('signature-pad');
+    var context = canvas.getContext('2d');
 
-    <script>
-        window.onload = function () {
-            const popup = document.querySelector('.notification-popup');
-            popup.classList.add('show');
+    // Set up the drawing canvas
+    var drawing = false;
+    var lastX = 0;
+    var lastY = 0;
 
-            setTimeout(() => {
-                popup.classList.remove('show');
-            }, 4000);
-        };
-    </script>
+    function draw(x, y) {
+        if (!drawing) return;
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(x, y);
+        context.stroke();
+        lastX = x;
+        lastY = y;
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+        drawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        draw(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseout', () => drawing = false);
+
+    // Touch support for mobile devices
+    canvas.addEventListener('touchstart', (e) => {
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousedown", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+        e.preventDefault(); // Prevent scrolling on touch
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+        e.preventDefault(); // Prevent scrolling on touch
+    });
+
+    canvas.addEventListener('touchend', (e) => {
+        var mouseEvent = new MouseEvent('mouseup', {});
+        canvas.dispatchEvent(mouseEvent);
+        e.preventDefault(); // Prevent scrolling on touch
+    });
+
+    // Clear the canvas
+    document.getElementById('clear').addEventListener('click', () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Save the canvas as a PNG image
+    document.getElementById('save').addEventListener('click', () => {
+        var dataURL = canvas.toDataURL('image/png');
+        var link = document.createElement('a');
+        link.download = 'signature.png';
+        link.href = dataURL;
+        link.click();
+    });
+});
+
+</script>
 </body>
 </html>
