@@ -52,7 +52,7 @@ window.addEventListener('load', function () {
                 <span class="file-name">Geen bestand gekozen</span>
                 <span class="file-size"></span>
             </label>
-            <button type="button" class="delete-btn" onclick="removeFileInput(this)">verwijderen</button>
+            <button type="button" class="delete-btn" onclick="removeFileInput(this)">Download</button>
         `;
         container.appendChild(fileInputContainer);
     };

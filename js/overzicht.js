@@ -31,7 +31,7 @@ function loadCards() {
 function createCard(name, description, address, imageUrl) {
     const card = document.createElement('a');
     card.className = 'card';
-    card.href = "test.html";
+    card.href = "inzien.html";
     card.style.textDecoration = 'none';
     card.style.color = '#333';
 

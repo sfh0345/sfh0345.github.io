@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Werkbon Invoeren - Brenkman Culemborg</title>
     <link rel="icon" type="image/png" href="assets/Fav_Brenkman_normal.png">
-    <link rel="stylesheet" href="/css/invoeren.css">
+    <link rel="stylesheet" href="/css/inzien.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,8 +16,8 @@
 
     <div class="container">
         <div class="header">
-            <a href="keuzeoverzicht.html" class="back-button"><img src="assets/backbutton.png" alt="Back"></a>
-            <h2>Werkbon maken</h2>
+            <a href="overzicht.html" class="back-button"><img src="assets/backbutton.png" alt="Back"></a>
+            <h2>Werkbon inzien</h2>
             <img src="assets/Brenkman-nieuw-logo_big.png" class="logobrenkman"alt="Logo">
         </div>
         <form action="#" method="post">
@@ -27,44 +27,44 @@
                 <div id="file-upload-container">
                     <!-- Initial file input will be added by JavaScript -->
                 </div>
-                <button type="button" class="add-btn" onclick="addFileInput()">Voeg een foto toe (+)</button>
-            </div>
+                        </div>
             
 
             <div class="form-group">
                 <label for="date">Datum:</label>
-                <input type="text" id="date" name="date" value="" placeholder="dd/mm/yyyy" required>
+                <input type="text" id="date" name="date" value="01/01/2000" placeholder="dd/mm/yyyy" required disabled>
             </div>
             
             <div class="form-group">
                 <label for="device">Apparaat:</label>
-                <input type="text" id="device" name="device" autocomplete="off">
+                <input type="text" id="device" name="device" autocomplete="off" value="test123" disabled>
             </div>
             <div class="form-group">
                 <label for="brand">Merk:</label>
-                <input type="text" id="brand" name="brand" autocomplete="off">
+                <input type="text" id="brand" name="brand" autocomplete="off" value="test123" disabled>
             </div>
             <div class="form-group">
                 <label for="model">Typenummer:</label>
-                <input type="text" id="model" name="model" autocomplete="off">
+                <input type="text" id="model" name="model" autocomplete="off" value="test123" disabled>
             </div>
             <div class="form-group">
                 <label for="serial">Serienummer:</label>
-                <input type="text" id="serial" name="serial" autocomplete="off">
+                <input type="text" id="serial" name="serial" autocomplete="off" value="test123" disabled>
             </div>
             <div class="form-group">
                 <label for="warranty">Aankoopdatum:</label>
-                <input type="date" style="font-family: Rubik;"  id="serial" name="serial" autocomplete="off">
+                <input type="text" style="font-family: Rubik;"  id="serial" name="serial" autocomplete="off" value="01/01/2000" disabled>
             </div>
             <h3>Klantgegevens:</h3>
             <div class="form-group">
                 <label for="name">Naam:</label>
-                <input type="text" id="naam1234" name="naam1234" autocomplete="false">
+                <input type="text" id="naam1234" name="naam1234" autocomplete="false" value="test123" disabled>
             </div>
                 <div class="form-group">
                     <label for="hidden">Klantadres:</label>
-                    <input type="text" id="hidden" name="hidden" autocomplete="off" required>
-                    <div style="font-weight: 600; font-size: 11px; position: relative; top: -5px; margin: 0; line-height: 1; font-family: Rubik light; color: #f44336; margin-top: -5px" id="messageContainer"></div>
+                    <input type="text" id="hidden" name="hidden" autocomplete="off" required value="Burgemeester deysstraat 3, Beusichem Nederland" disabled>
+                    <!-- <h6 id="geenhuisnummer" style="margin: 0; line-height: 0; font-family: Rubik light; color: #f44336; margin-top: -5px; margin-bottom: 30px;"></h6> -->
+                    <div style="font-size: 14px; margin: 0; line-height: 1; font-family: Rubik light; color: #f44336; margin-top: -5px" id="messageContainer"></div>
                 </div>
                 <!-- <div class="form-group">
                     <label for="name">Toevoeging:</label>
@@ -76,64 +76,64 @@
                 <label for="telefoon">Telefoonnummers:</label>
                 <div id="telefoon">
                     <div class="telefoon-item">
-                        <input type="text" autocomplete="off" placeholder="(0345) 512 673" name="telefoon[]">
-                        <select class="selectmenu" name="title1" required>
+                        <input type="text" autocomplete="off" placeholder="(0345) 512 673" name="telefoon[]" value="06 30 42 78 79" disabled>
+                        <select class="selectmenu" name="title1" required disabled>
                             <option value="mvr">n.v.t</option>
                             <option value="dhr">Dhr.</option>
                             <option value="mvr">Mvr.</option>
                         </select>
                     </div>
                 </div>
-                <button type="button" class="add-btn" onclick="addPhone()">(+) Voeg een nummer toe</button>
 
 
 
             </div>
             <div class="form-group">
                 <label for="email">Mailadres:</label>
-                <input type="email" id="mail" name="mail" autocomplete="off">
+                <input type="email" id="mail" name="mail" autocomplete="off" value="Sanderhol@icloud.com" disabled>
                 <a onclick="Sendtestmail">
                 <button class="add-btn">Verstuur testmail</button>
             </a>
             </div>
             <div class="form-group">
                 <label for="repair-time">Reparatieduur (in minuten):</label>
-                <input type="number" id="repair-time" name="repair-time" value="15" autocomplete="off">
+                <input type="number" id="repair-time" name="repair-time" value="15" autocomplete="off" disabled>
             </div>
             <div class="form-group">
                 <label for="complaint">Klachtomschrijving:</label>
-                <textarea id="complaint" style="resize: none; height: 100px; font-family: Rubik;" name="complaint" autocomplete="off"></textarea>
+                <textarea id="complaint" style="resize: none; height: 100px; font-family: Rubik;" name="complaint" autocomplete="off" disabled></textarea>
             </div>
             <div class="form-group">
                 <label for="work-description">Werkomschrijving:</label>
-                <textarea id="work-description" style="resize: none; height: 100px; font-family: Rubik;" name="work-description" autocomplete="off"></textarea>
+                <textarea id="work-description" style="resize: none; height: 100px; font-family: Rubik;" name="work-description" autocomplete="off" disabled></textarea>
             </div>
             <div class="form-group">
                 <label for="materials">Verbruikte materialen:</label>
                 <div id="materials">
                     <div class="material-item">
-                        <input type="text" autocomplete="off" name="material[]" placeholder="Materiaal">
-                        <input type="number" autocomplete="off" name="cost[]" placeholder="0,00€">
+                        <input type="text" autocomplete="off" name="material[]" placeholder="Materiaal" disabled>
+                        <input type="number" autocomplete="off" name="cost[]" placeholder="0,00€" disabled>
                     </div>
                 </div>
-                <button type="button" class="add-btn" onclick="addMaterial()">(+) Voeg materiaal toe</button>
             </div>
 
             <div class="form-group">
                 <label for="signature-pad">Handtekening klant:</label>
                 <div class="signature-pad">
-                    <canvas id="signature-pad" width="400" height="200" border-color="black" border-width="1px"></canvas>
-                    <button type="button" class="add-btn" id="clear">Wissen</button>
+                    <!-- <canvas id="signature-pad" width="400" height="200" border-color="black" border-width="1px"></canvas> -->
+                    <img style="width: 100%; height: 200px;" src="/assets/signature1.png" alt="">
                 </div>
             </div>
             
 
-
-            <input class="opslaanbutton" id="opslaanbutton" type="submit" value="Opslaan">
+            <div class="buttonflex">
+                <input class="opslaanbutton" id="opslaanbutton" type="submit" value="Wijzigen">
+                <input class="archiverenbutton" id="archiveren" type="submit" value="Archiveren">
+            </div>
         </form>
     </div>
 
-    <script src="js/invoeren.js"></script>
+    <script src="js/inzien.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4F4CRjfCWr_ib8mAwq5oUTaqvQ9bbCLg&libraries=places&callback=initialize" async defer></script>
 </body>
 </html>
