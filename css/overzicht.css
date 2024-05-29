@@ -107,6 +107,47 @@ header {
     display: block; /* Remove any default inline padding/margin */
     padding: 10px;
 }
+#dotsButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 8px 16px;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: white;
+    margin-left: 15px;
+    
+    
+}
+
+#dotsButton {
+    cursor: pointer;
+    background: #005fa3; /* Darker shade for better contrast */
+    border: none;
+    padding: 0; /* Remove padding if the image has its own padding */
+    border-radius: 5px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#dotsButton:hover {
+    background: rgb(1, 100, 199); /* Change background color on hover */
+    text-decoration: none; /* Remove underline from text */
+}
+
+#dotsButton::after {
+    content: ''; /* Add content for pseudo-element */
+    background-color: #004899;
+}
+
+#dotsButton img {
+    width: 19px; /* Or the size you want */
+    height: 19px; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline padding/margin */
+    padding: 10px;
+    margin: auto;
+}
 
 #refreshButton {
     cursor: pointer;
@@ -269,15 +310,67 @@ header {
         width: 100%;
     }    }
 
-    .dropdown {
-        order: 5; /* Dropdown comes last */
-        flex-basis: 100%; /* Dropdown takes full width */
-        margin-top: 10px; /* Space above dropdown */
-    }
     .card-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 30px;
+        margin: 15px;
         margin-inline: 40px;
+    }
+
+    .dropdown button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .dropdown button:hover {
+        background-color: #0056b3;
+    }
+
+    .dropdown img {
+        vertical-align: middle;
+    }
+
+    /* Dropdown menu style */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 5px;
+    }
+
+    .dropdown-content a {
+        color: black;
+        font-size: 13px;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+
+    .dropdown-content a:first-child {
+        border-top: none;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+
+    .dropdown-content a:last-child {
+        border-bottom: none;
+        border-radius: 5px;
+    }
+
+    .show {
+        display: block;
     }

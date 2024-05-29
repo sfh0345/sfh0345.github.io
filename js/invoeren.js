@@ -157,12 +157,21 @@ function validateAddress(place) {
     var postalCode = getComponent(place, 'postal_code');
     var locality = getComponent(place, 'locality');
     var country = getComponent(place, 'country');
+    var street_number = getComponent(place, 'street_number');
+
 
     var address = `${route} ${streetNumber}, ${postalCode} ${locality}, ${country}`;
     document.getElementById('hidden').value = address;
 
-    if (!validatePostalCode(postalCode)) {
-        showMessage("Let op: de postcode is niet correct ingevuld.", 'error');
+    var streetNumberRegex = /\b\d+([a-zA-Z\-]?[a-zA-Z0-9]*)?\b/;
+    var streetNumberMatch = street_number.match(streetNumberRegex);
+
+    if (!streetNumberMatch) {
+        showMessage("Let op: er is nog geen huisnummer geselecteerd.", 'error');
+        console.log("ERROR 1: Er is geen huisnummer geselecteerd")
+    } else if (!validatePostalCode(postalCode)){
+        showMessage("De postcode is niet correct ingevuld (vereist formaat: 1234 AB).", 'error');
+        console.log("ERROR 2: De postcode is niet correct ingevuld")
     } else {
         showMessage("", 'clear');
     }
@@ -178,8 +187,11 @@ function validateManualInput(inputValue) {
 
     if (!isValidStreetNumber) {
         showMessage("Let op: er is nog geen huisnummer geselecteerd.", 'error');
+        console.log("ERROR 3: Er is geen huisnummer ingevuld (manual input)")
+
     } else if (!isValidPostalCode) {
         showMessage("De postcode is niet correct ingevuld (vereist formaat: 1234 AB).", 'error');
+        console.log("ERROR 4: De postcode is niet correct ingevuld (manual input)")
     } else {
         showMessage("", 'clear');
     }
@@ -187,9 +199,18 @@ function validateManualInput(inputValue) {
 
 function showMessage(message, type) {
     var messageContainer = document.getElementById('messageContainer');
+    var inputField = document.querySelector('.errorfield');
+    
     messageContainer.textContent = message;
     messageContainer.style.display = message ? 'block' : 'none';
     messageContainer.style.color = type === 'error' ? 'red' : 'black';
+
+    if (type === 'error') {
+        inputField.classList.add('error');
+    } else {
+        inputField.classList.remove('error');
+    }
+
     console.log("Displaying message:", message);
 }
 

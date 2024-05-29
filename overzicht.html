@@ -16,13 +16,31 @@
             <input type="text" id="searchInput" placeholder="Zoek in werkbonnen...">
             <!-- <button id="searchButton">&#128269;</button> -->
             <button id="searchButton">
-                <img src="/assets/white search.png" alt="Search" />
+                <img src="/assets/white search.png" alt="Search" id="" />
             </button>
             <a href="overzicht.html">
-            <button id="refreshButton">
+            <button id="refreshButton" style="margin-left: 15px;">
                 <img src="/assets/refresh white.png" alt="Refresh" id="refreshImage" />
             </button>
         </a>    
+        <div class="dropdown">
+            <button id="dotsButton">
+                <img src="/assets/menu-dots-vertical.png" alt="Meer opties" />
+            </button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="#">
+                    <img style="width: 17px; height: 100%;"  src="/assets/box.png" alt="Icon Geachriveerd">
+                    Geachriveerd
+                </a>
+                <a href="#">
+                    <img style="width: 17px; height: 100%;"  src="/assets/trash.png" alt="Icon Werkbonnen erwijderen">
+                    Werkbonnen verwijderen</a>
+                <a href="#">
+                    <img style="width: 17px; height: 100%;"  src="/assets/trash-list.png" alt="Icon Verwijderde items">
+                    Verwijderde items
+                </a>
+            </div>
+        </div>
     
         </div>
         

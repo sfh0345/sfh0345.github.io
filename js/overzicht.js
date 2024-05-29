@@ -73,3 +73,19 @@ document.getElementById('searchInput').addEventListener('keypress', (e) => {
         filterCards(searchText);
     }
 });
+document.getElementById("refreshButton").onclick = function() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+};
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('#dotsButton')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+};
